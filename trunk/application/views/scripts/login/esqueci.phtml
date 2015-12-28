@@ -1,0 +1,25 @@
+<div class="info">	
+		<div class="menu-left">
+			<h2>Categorias</h2>
+				<ul>
+					<li>Categoria 1</li>
+					<li>Categoria 2</li>
+					<li>Categoria 3</li>
+					<li>Categoria 4</li>
+					<li>Categoria 5</li>
+					<li>Categoria 6</li>
+					<li>Categoria 7</li>
+					<li>Categoria 8</li>
+				</ul>
+		</div>
+	<div class="conteudo">
+		<div class="telaCadastro2">
+		<h2>Digite o usuário</h2>
+		<?PHP echo $this->form; ?>
+		* Indica campo obrigatório
+		<?php if($this->aviso){ echo $this->aviso; } ?>
+	<h2><a href="<?PHP echo $this->url(array('module' => 'default', 'controller' => 'login', 'action' => 'redefinir'), null, true); ?>">Já tenho o código de redefinição</a></h2>
+		
+</div>		
+	</div>
+</div>	

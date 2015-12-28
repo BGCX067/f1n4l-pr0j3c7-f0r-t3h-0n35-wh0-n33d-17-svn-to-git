@@ -1,0 +1,59 @@
+﻿<div class="info">	
+	<div class="menu-left">
+			<h2>Categorias</h2>
+				<ul>
+		<?php if(isset($this->categorias)):?>
+							<?PHP foreach ($this->categorias as $categoria): ?>
+							<li><a href="<?PHP echo $this->url(array('module' => 'default', 'controller' => 'cardapio', 'action' => 'index', 'categoria' => $categoria['nome_categoria']), null, true); ?>"><?php echo $categoria['nome_categoria'];?></a></li>
+							<?PHP endforeach; ?>
+		<?php else:?>
+					<li>Categoria 1</li>
+					<li>Categoria 2</li>
+					<li>Categoria 3</li>
+					<li>Categoria 4</li>
+					<li>Categoria 5</li>
+					<li>Categoria 6</li>
+					<li>Categoria 7</li>
+					<li>Categoria 8</li>
+		<?php endif;?>
+				</ul>
+		</div>
+	
+	<div class="conteudo">
+	<h2>Carrinho</h2>
+	<?PHP if (isset($this->ingredientes)): ?>
+		<?php foreach($this->ingredientes as $ingrediente):?>
+			<?php for($i=0;$i<sizeof($ingrediente);$i++):?>
+				 <h3>id: <?php echo $ingrediente[$i]['id_ingrediente_idx'];?></h3>
+				 <h3>id ingrediente: <?php echo $ingrediente[$i]['id_ingrediente'];?></h3>
+				 <h3>id produto: <?php echo $ingrediente[$i]['id_produto'];?></h3>
+				 <h3>opcional: <?php echo $ingrediente[$i]['opcional'];?></h3>
+				 <h3>adicional: <?php echo $ingrediente[$i]['adicional'];?></h3>
+				 <h3>padrao: <?php echo $ingrediente[$i]['qtd_padrao'];?></h3>
+				 <h3>min: <?php echo $ingrediente[$i]['qtd_min'];?></h3>
+				 <h3>max: <?php echo $ingrediente[$i]['qtd_max'];?></h3>
+			<?php endfor;?>
+		<?php endforeach;?>
+	<?php endif;?>
+	<?PHP if (isset($this->produtos)): ?>
+	 <h3>produtos: <?php print_r($this->produtos);?></h3>
+		<?PHP foreach ($this->produtos as $posicao => $id): ?>
+			<div id="produto">
+				<img width="60" src="http://projeto.final/img/produtos/<?php echo $id;?>.jpg"/>
+				<a href="<?PHP echo $this->url(array('action' => 'remover', 'id' => $posicao)); ?>">Excluir Produto</a>
+			</div>
+		<?PHP endforeach; ?>
+	<h3 style="text-align: center; color: green;"><a style="color: green;" href="<?PHP echo $this->url(array('action' => 'finalizar')); ?>">Finalizar compra</a></h3>
+	<?php else:?>
+	<h3 style="text-align: center; color: red;">Você não possui ítens no carrinho!</h3>
+	<?PHP endif; ?>
+
+<div class="container">
+        
+        <div class="bottom-container-border">
+        </div>
+
+    </div>		
+	</div>
+	    
+</div>	
